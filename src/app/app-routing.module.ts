@@ -1,5 +1,5 @@
-import { TasksFormComponent } from './tasksComponets/tasks-form/tasks-form.component';
-import { TasksListComponent } from './tasksComponets/tasks-list/tasks-list.component';
+import { TasksFormComponent } from './tasks-componets/tasks-form/tasks-form.component';
+import { TasksListComponent } from './tasks-componets/tasks-list/tasks-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
