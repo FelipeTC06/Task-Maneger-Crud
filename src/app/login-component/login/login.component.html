@@ -1,0 +1,13 @@
+<div class="col-2">
+    <div>
+        <div class="row">
+            <label for="user" class="form-label">User</label>
+            <input [(ngModel)]="user.name" type="text" id="user" class="form-control">
+        </div>
+        <div class="row">
+            <label for="password" class="form-label">Password</label>
+            <input [(ngModel)]="user.password" type="password" id="password" class="form-control">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="doLogin()">Submit</button>
+</div>
