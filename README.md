@@ -7,9 +7,7 @@ Além disso, foi utilizado o json-server para simular uma API REST. Isso permite
 ## Funcionalidades
 
 O CRUD possui as seguintes funcionalidades:
-
-## Listagem de todas as tarefas cadastradas.
-
+Listagem de todas as tarefas cadastradas.
 Criação de novas tarefas.
 Edição de tarefas existentes.
 Exclusão de tarefas.
@@ -20,7 +18,9 @@ Além disso, foi desenvolvida uma tela de login utilizando JWT (JSON Web Tokens)
 Angular 12
 json-server
 JWT (JSON Web Tokens)
-Como executar o projeto
+
+## Como executar o projeto
+
 Clone o repositório em sua máquina local.
 Execute o comando npm install para instalar as dependências do projeto.
 Execute o comando npm run server para iniciar o servidor simulado.
