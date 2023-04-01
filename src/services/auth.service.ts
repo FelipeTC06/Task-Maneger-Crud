@@ -17,8 +17,8 @@ export class AuthService {
     private router: Router,
   ) { }
 
-  public doLogin(user:User) {
-    if(user.name === 'felipe@easyteam.rocks' && user.password === '123456'){
+  public doLogin(user: User) {
+    if (user.name === 'felipe@easyteam.rocks' && user.password === '123456') {
       this.userAuthenticated = true;
       this.showMenuSource.next(true);
       this.router.navigate(['']);
@@ -26,6 +26,10 @@ export class AuthService {
       this.userAuthenticated = false;
       this.showMenuSource.next(false);
     }
+  }
+
+  public userIsAuthenticated() {
+    return this.userAuthenticated
   }
 
 }
