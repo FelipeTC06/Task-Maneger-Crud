@@ -17,18 +17,26 @@ export class TasksListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getTasks()
+    this.getTasks();
   }
 
   public getTasks() {
     this.taskservice.getTasks().subscribe((result: any) => {
-      this.tasks = result
+      this.tasks = result;
     })
   }
 
   public editTasks(id: number) {
-    this.router.navigate(['task-form', id])
+    this.router.navigate(['tasks-form', id]);
   }
 
+  public deleteTask(id: number) {
+    this.taskservice.deleteTask(id).subscribe(
+      {
+        error: (e) => console.log(e),
+        complete: () => this.getTasks()
+      }
+    )
+  }
 
 }

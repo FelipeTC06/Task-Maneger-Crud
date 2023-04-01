@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TasksServiceService } from 'src/services/tasks-service.service';
 
 @Component({
@@ -10,16 +10,24 @@ import { TasksServiceService } from 'src/services/tasks-service.service';
 })
 export class TasksFormComponent implements OnInit {
 
-  public taskForm!: FormGroup
+  public taskForm!: FormGroup;
+  private id?: number;
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private taskService: TasksServiceService
+    private taskService: TasksServiceService,
+    private route: ActivatedRoute
   ) { }
 
   public ngOnInit(): void {
-    this.createTask()
+    this.id = this.route.snapshot.params['id'];
+    this.createTask();
+    if (this.id) {
+      this.taskService.getTaskById(this.id).subscribe((response) => {
+        this.taskForm.patchValue(response)
+      })
+    }
   }
 
   public createTask() {
@@ -32,14 +40,21 @@ export class TasksFormComponent implements OnInit {
 
   public saveTask() {
     const value = this.taskForm.value;
-    this.taskService.createTasks(value).subscribe({
-      error: (e) => console.log(e),
-      complete: () => this.cancel()
-    })
+    if (this.id) {
+      this.taskService.updateTasks(this.id, value).subscribe({
+        error: (e) => console.log(e),
+        complete: () => this.cancel()
+      })
+    } else {
+      this.taskService.createTasks(value).subscribe({
+        error: (e) => console.log(e),
+        complete: () => this.cancel()
+      })
+    }
   }
 
-  public cancel(){
-    this.router.navigate([''])
+  public cancel() {
+    this.router.navigate(['']);
   }
 
 }

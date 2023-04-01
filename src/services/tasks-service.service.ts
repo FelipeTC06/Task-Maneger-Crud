@@ -25,5 +25,12 @@ export class TasksServiceService {
     return this.http.post(`${this.tasksURL}`, value)
   }
 
+  public updateTasks(id: number, value: any) {
+    return this.http.put(`${this.tasksURL}/${id}`, value)
+  }
+
+  public deleteTask(id: number) {
+    return this.http.delete(`${this.tasksURL}/${id}`)
+  }
 
 }

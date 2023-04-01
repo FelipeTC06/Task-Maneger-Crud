@@ -18,8 +18,8 @@
                     <td>{{ task.task }}</td>
                     <td>{{ task.day | date }}</td>
                     <td>{{ task.description }}</td>
-                    <td><i data-feather="circle"></i></td>
-                    <td><button>delete</button></td>
+                    <td><button class="btn-edit-delete" (click)="editTasks(task.id)"><i class="bi bi-pencil-square"></i></button></td>
+                    <td><button class="btn-edit-delete" (click)="deleteTask(task.id)"><i class="bi bi-trash"></i></button></td>
                 </tr>
             </tbody>
         </table>
