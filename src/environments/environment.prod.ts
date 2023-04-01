@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  taskURL: "http://localhost:3000/tasks"
 };

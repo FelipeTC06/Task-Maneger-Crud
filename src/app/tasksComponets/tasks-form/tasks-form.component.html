@@ -1,0 +1,26 @@
+<div class="container">
+    <form [formGroup]="taskForm" class="form-cont">
+        <div class="form-div">
+            <h3 class="text-decoration-underline">Task settings</h3>
+            <div class="mb-3">
+                <label class="form-label">Task name</label>
+                <input type="text" class="form-control" formControlName="task">
+                <div class="form-text"></div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Day</label>
+                <input type="date" class="form-control" formControlName="day">
+                <div class="form-text"></div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                <input type="text" class="form-control" formControlName="description">
+                <div  class="form-text"></div>
+            </div>
+        </div>
+        <div class="btn-div">
+            <button class="btn btn-success" (click)="saveTask()">Save</button>
+            <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+        </div>
+    </form>
+</div>

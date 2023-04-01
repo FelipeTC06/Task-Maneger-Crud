@@ -1,0 +1,26 @@
+.container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    form {
+        border: 1px solid grey;
+        border-radius: 7px;
+        padding: 10px;
+
+        .form-div {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .btn-div{
+            display: flex;
+            justify-content: flex-end;
+            
+            button {
+                margin: 5px;
+            }
+        }
+    }
+}
