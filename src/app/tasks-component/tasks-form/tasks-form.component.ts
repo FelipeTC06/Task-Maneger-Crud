@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IformCandeactivate } from 'src/interfaces/iform-candeactivate';
 import { TasksServiceService } from 'src/services/tasks-service.service';
 
 @Component({
@@ -8,9 +9,9 @@ import { TasksServiceService } from 'src/services/tasks-service.service';
   templateUrl: './tasks-form.component.html',
   styleUrls: ['./tasks-form.component.scss']
 })
-export class TasksFormComponent implements OnInit {
+export class TasksFormComponent implements OnInit, IformCandeactivate {
 
-  public taskForm!: FormGroup;
+  public form!: FormGroup
   private id?: number;
 
   constructor(
@@ -25,13 +26,13 @@ export class TasksFormComponent implements OnInit {
     this.createTask();
     if (this.id) {
       this.taskService.getTaskById(this.id).subscribe((response) => {
-        this.taskForm.patchValue(response)
+        this.form.patchValue(response)
       })
     }
   }
 
   public createTask() {
-    this.taskForm = this.formBuilder.group({
+    this.form = this.formBuilder.group({
       task: [null, Validators.required],
       day: [null, Validators.required],
       description: [null, Validators.required]
@@ -39,7 +40,7 @@ export class TasksFormComponent implements OnInit {
   }
 
   public saveTask() {
-    const value = this.taskForm.value;
+    const value = this.form.value;
     if (this.id) {
       this.taskService.updateTasks(this.id, value).subscribe({
         error: (e) => console.log(e),
@@ -52,9 +53,9 @@ export class TasksFormComponent implements OnInit {
       })
     }
   }
-
+  
   public cancel() {
-    this.router.navigate(['']);
+    this.router.navigate(['/tasks-list']);
   }
 
 }

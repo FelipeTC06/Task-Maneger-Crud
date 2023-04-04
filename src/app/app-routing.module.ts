@@ -1,3 +1,4 @@
+import { TaskDeactivateGuard } from './../guards/task-deactivate.guard';
 import { AuthGuard } from './../guards/auth-guard.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,7 +12,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'tasks-list', component: TasksListComponent, canActivate: [AuthGuard] },
   { path: 'tasks-form', component: TasksFormComponent, canActivate: [AuthGuard] },
-  { path: 'tasks-form/:id', component: TasksFormComponent, canActivate: [AuthGuard] },
+  { path: 'tasks-form/:id', component: TasksFormComponent, canActivate: [AuthGuard], canDeactivate: [TaskDeactivateGuard] },
 
 ];
 

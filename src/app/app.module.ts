@@ -1,3 +1,4 @@
+import { TaskDeactivateGuard } from './../guards/task-deactivate.guard';
 import { AuthGuard } from './../guards/auth-guard.guard';
 import { AuthService } from './../services/auth.service';
 import { NgModule } from '@angular/core';
@@ -31,7 +32,7 @@ import { LoginComponent } from './login-component/login/login.component';
     FormsModule
      
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard,TaskDeactivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
