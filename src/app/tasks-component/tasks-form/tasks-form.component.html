@@ -4,7 +4,7 @@
             <h3 class="text-decoration-underline">Task settings</h3>
             <div class="mb-3">
                 <label class="form-label">Task name</label>
-                <input type="text" class="form-control" formControlName="task">
+                <input type="text" class="form-control" (input)="onInput()" formControlName="task">
                 <div class="form-text"></div>
             </div>
             <div class="mb-3">

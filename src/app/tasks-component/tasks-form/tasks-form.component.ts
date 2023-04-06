@@ -13,6 +13,7 @@ export class TasksFormComponent implements OnInit, IformCandeactivate {
 
   public form!: FormGroup
   private id?: number;
+  formMudou: boolean = false
 
   constructor(
     private formBuilder: FormBuilder,
@@ -38,6 +39,21 @@ export class TasksFormComponent implements OnInit, IformCandeactivate {
       description: [null, Validators.required]
     })
   }
+
+  public onInput() {
+    this.formMudou = true
+  }
+
+  public podeMudarRota() {
+    if(this.formMudou) {
+      return confirm('tem certeza que deseja sair sem salvar?');
+    }
+    return true
+  }
+
+  public podeDesativar() {
+      return this.podeMudarRota();
+  }  
 
   public saveTask() {
     const value = this.form.value;

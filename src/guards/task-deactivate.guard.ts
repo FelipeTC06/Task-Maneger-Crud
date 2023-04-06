@@ -12,12 +12,7 @@ export class TaskDeactivateGuard implements CanDeactivate<IformCandeactivate> {
     currentRoute: ActivatedRouteSnapshot,
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      const form = component.form;
-      console.log('form.pristine:', form.dirty);
-      if (form.dirty) {
-        return confirm('Tem certeza que deseja sair sem salvar as alterações?');
-      }
-    return true;
+    return  component.podeDesativar();
   }
 
 }
